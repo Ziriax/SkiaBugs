@@ -13,7 +13,19 @@ namespace DockerTextBug
 			using var surface = SKSurface.Create(new SKImageInfo(256, 256));
 			using var canvas = surface.Canvas;
 			canvas.Clear(SKColors.SkyBlue);
-			using var paint = new SKPaint { Color = SKColors.Yellow, TextAlign = SKTextAlign.Center, TextSize = 64 };
+
+			using var typeface = SKTypeface.FromFile("Karla-Regular.ttf");
+			using var paint = new SKPaint
+			{
+				Color = SKColors.Yellow,
+				TextAlign = SKTextAlign.Center,
+				TextSize = 64,
+				// Doesn't work
+				// Typeface = SKTypeface.Default
+				// Works
+				Typeface = typeface
+			};
+
 			canvas.DrawText("foobar", 128, 128, paint);
 			using var image = surface.Snapshot();
 			using var data = image.Encode();
