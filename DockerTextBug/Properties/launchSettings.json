@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Windows/Native": {
+      "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)"
+    },
+    "Linux/Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
